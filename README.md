@@ -1,48 +1,88 @@
-
 # Mushroom Classification 🍄
 
 ## Project Overview
-This machine learning project classifies mushrooms as **edible or poisonous** using their physical characteristics. It uses supervised learning to compare multiple classification algorithms and evaluate their performance.
+
+This machine learning project classifies mushrooms as **edible or poisonous** based on their physical characteristics.
+
+It uses supervised machine learning to train and compare multiple classification algorithms and presents their predictions through an interactive Streamlit dashboard.
 
 ## Dataset
-- **Source:** Mushroom dataset
+
+- **Source:** Mushroom Dataset (add the exact Kaggle or UCI dataset link)
 - **Total records:** 8,124
 - **Input features:** 21 categorical features
-- **Target:** `class` — edible (`e`) or poisonous (`p`)
-- **Preprocessing:** Replaced unknown stalk-root values with an `unknown` category and removed a constant feature.
+- **Target variable:** `class`
+  - `e` — Edible
+  - `p` — Poisonous
+- **Preprocessing:**
+  - Replaced unknown values in `stalk-root` with an `unknown` category.
+  - Removed a constant feature (`veil-type`).
 
 ## Exploratory Data Analysis
-Exploratory Data Analysis (EDA) was performed to understand the class distribution and relationships between mushroom characteristics and their classes. A profiling report was also generated.
+
+Exploratory Data Analysis (EDA) was performed to understand the dataset, examine the target class distribution, and explore relationships between mushroom characteristics and their classes.
+
+A data profiling report was also generated using **YData Profiling**.
 
 ## Machine Learning Workflow
-1. Data loading and cleaning
-2. Exploratory Data Analysis and visualization
-3. Train-test split
-4. Categorical feature preprocessing using `OneHotEncoder` and `ColumnTransformer`
-5. Model pipelines using scikit-learn
-6. Hyperparameter tuning with `GridSearchCV`
-7. Model evaluation and comparison
-8. Saving trained pipelines with Joblib
+
+1. Data loading and inspection
+2. Data cleaning and preprocessing
+3. Exploratory Data Analysis and visualization
+4. Train-test split
+5. Categorical feature encoding and preprocessing
+6. Model training using scikit-learn pipelines
+7. Hyperparameter tuning with `GridSearchCV`
+8. Model evaluation and comparison
+9. Saving trained pipelines using Joblib
+10. Integrating the trained models into a Streamlit dashboard
 
 ## Models Evaluated
+
+The following classification algorithms were trained and evaluated:
+
 - Logistic Regression
 - Support Vector Classifier (SVC)
 - K-Nearest Neighbors (KNN)
 - Random Forest Classifier
 
 ## Results
-The models achieved test accuracies of approximately **99.94% to 100%** on the selected test split. These results apply to this dataset and evaluation setup; they do not guarantee perfect predictions on new, real-world mushrooms.
+
+The models achieved test accuracies of approximately **99.94% to 100%** on the selected test split.
+
+| Model | Test Accuracy |
+|---|---:|
+| Logistic Regression | 99.94% |
+| Support Vector Classifier | 100% |
+| K-Nearest Neighbors | 100% |
+| Random Forest | 100% |
+
+These results reflect performance on this dataset and evaluation setup. They do not guarantee the same performance on unseen, real-world mushrooms.
+
+## Streamlit Dashboard
+
+The project includes an interactive Streamlit dashboard that provides:
+
+- Dataset description and preview
+- Exploratory data analysis and visualizations
+- Model accuracy comparison
+- Mushroom feature selection through input controls
+- Predictions from all four trained models
 
 ## Technologies Used
+
 - Python
 - Pandas and NumPy
 - Matplotlib and Seaborn
 - Scikit-learn
+- Streamlit
 - YData Profiling
 - Joblib
 - Jupyter Notebook
+- Git and GitHub
 
 ## Project Structure
+
 ```text
 Mushroom_classification/
 ├── data/
@@ -52,6 +92,8 @@ Mushroom_classification/
 │   ├── svc_pipeline.joblib
 │   ├── knn_pipeline.joblib
 │   └── random_forest_pipeline.joblib
+├── app.py
+├── style.css
 ├── mushroom.ipynb
 ├── README.md
 ├── requirements.txt
@@ -59,10 +101,35 @@ Mushroom_classification/
 ```
 
 ## How to Run
-1. Clone or download this repository.
-2. Install the required packages listed in `requirements.txt`.
-3. Open `mushroom.ipynb` in Jupyter Notebook or VS Code.
-4. Run the notebook cells in order.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/snehaaa939/mushroom-classification.git
+```
+
+### 2. Navigate to the project folder
+
+```bash
+cd mushroom-classification
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Streamlit dashboard
+
+```bash
+python -m streamlit run app.py
+```
+
+The dashboard will open in your browser.
+
+You can also open `mushroom.ipynb` in Jupyter Notebook or VS Code to explore the data analysis and model training process.
 
 ## Disclaimer
-This project is for educational purposes only. Never use a machine learning prediction as the sole basis for deciding whether a wild mushroom is safe to eat.
+
+This project is developed for educational purposes only. Machine learning predictions should never be used as the sole basis for determining whether a wild mushroom is safe to eat.
