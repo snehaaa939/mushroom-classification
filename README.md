@@ -1,5 +1,7 @@
 # Mushroom Classification 🍄
 
+🔗 **Live app:** [Open the Streamlit app](https://snehaaa939-mushroom-classifier-app.streamlit.app/)
+
 ## Project Overview
 
 This machine learning project classifies mushrooms as **edible or poisonous** based on their physical characteristics.
@@ -8,7 +10,7 @@ It uses supervised machine learning to train and compare multiple classification
 
 ## Dataset
 
-- **Source:** Mushroom Dataset (add the exact Kaggle or UCI dataset link)
+- **Source:** [Mushroom Dataset (UCI Machine Learning Repository)](https://archive.ics.uci.edu/dataset/73/mushroom)
 - **Total records:** 8,124
 - **Input features:** 21 categorical features
 - **Target variable:** `class`
@@ -22,7 +24,7 @@ It uses supervised machine learning to train and compare multiple classification
 
 Exploratory Data Analysis (EDA) was performed to understand the dataset, examine the target class distribution, and explore relationships between mushroom characteristics and their classes.
 
-A data profiling report was also generated using **YData Profiling**.
+A data profiling report was also generated using **YData Profiling**. It can be downloaded from the dashboard and opened in a browser.
 
 ## Machine Learning Workflow
 
@@ -57,7 +59,7 @@ The models achieved test accuracies of approximately **99.94% to 100%** on the s
 | K-Nearest Neighbors | 100% |
 | Random Forest | 100% |
 
-These results reflect performance on this dataset and evaluation setup. They do not guarantee the same performance on unseen, real-world mushrooms.
+These scores are high because the classes in this dataset are very easy to separate (for example, odor and spore-print color are strong predictors). They reflect performance on this dataset and evaluation setup. They do not guarantee the same performance on unseen, real-world mushrooms.
 
 ## Streamlit Dashboard
 
@@ -65,9 +67,15 @@ The project includes an interactive Streamlit dashboard that provides:
 
 - Dataset description and preview
 - Exploratory data analysis and visualizations
-- Model accuracy comparison
+- A downloadable YData Profiling report
 - Mushroom feature selection through input controls
-- Predictions from all four trained models
+- Predictions from all four trained models, with a warning when they disagree
+- Model accuracy comparison
+
+### Screenshots
+
+![Dashboard overview](data/screenshots/overview.png.png)
+![Prediction results](data/screenshots/prediction.png.png)
 
 ## Technologies Used
 
@@ -85,14 +93,19 @@ The project includes an interactive Streamlit dashboard that provides:
 
 ```text
 Mushroom_classification/
+├── .streamlit/
+│   └── config.toml
 ├── data/
-│   └── mushroom_dataset_cleaned.csv
+│   ├── mushroom_dataset_cleaned.csv
+│   └── mushroom_cleaned.html
 ├── models/
 │   ├── logistic_regression_pipeline.joblib
 │   ├── svc_pipeline.joblib
 │   ├── knn_pipeline.joblib
 │   └── random_forest_pipeline.joblib
+├── screenshots/
 ├── app.py
+├── check_models.py
 ├── style.css
 ├── mushroom.ipynb
 ├── README.md
@@ -128,7 +141,13 @@ python -m streamlit run app.py
 
 The dashboard will open in your browser.
 
-You can also open `mushroom.ipynb` in Jupyter Notebook or VS Code to explore the data analysis and model training process.
+### Running the notebook
+
+`requirements.txt` covers the dashboard only. To explore `mushroom.ipynb`, also install:
+
+```bash
+pip install matplotlib seaborn ydata-profiling jupyter
+```
 
 ## Disclaimer
 
