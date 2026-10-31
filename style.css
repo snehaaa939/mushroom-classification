@@ -90,33 +90,6 @@ label {
     border-radius: 10px;
 }
 
-/* ---------- Buttons (Predict + Try Another Mushroom) ---------- */
-.stApp [data-testid="stFormSubmitButton"] button,
-.stApp [data-testid="stBaseButton-primary"] {
-    background-color: #173D32 !important;
-    color: #FFFFFF !important;
-    border: 2px solid #173D32 !important;
-    border-radius: 10px !important;
-    font-weight: 700 !important;
-    padding: 0.6rem 1.2rem !important;
-    opacity: 1 !important;
-}
-
-.stApp [data-testid="stFormSubmitButton"] button p,
-.stApp [data-testid="stFormSubmitButton"] button span,
-.stApp [data-testid="stBaseButton-primary"] p,
-.stApp [data-testid="stBaseButton-primary"] span {
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-}
-
-.stApp [data-testid="stFormSubmitButton"] button:hover,
-.stApp [data-testid="stBaseButton-primary"]:hover {
-    background-color: #999721 !important;
-    /* amber on hover */
-    border-color: #999721 !important;
-}
-
 /* ---------- Top banner ---------- */
 .hero {
     background: linear-gradient(135deg, #164f18 0%, #15801a 100%);
@@ -151,4 +124,31 @@ label {
 /* ---------- Bigger prediction messages ---------- */
 [data-testid="stAlert"] p {
     font-size: 1.15rem;
+}
+
+/* ---------- Buttons (Predict + Try Another Mushroom) ---------- */
+.stApp [data-testid="stFormSubmitButton"] button,
+.stApp [data-testid="stBaseButton-primary"] {
+    background-color: #173D32 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #173D32 !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    padding: 0.6rem 1.2rem !important;
+    opacity: 1 !important;
+}
+
+.stApp [data-testid="stFormSubmitButton"] button p,
+.stApp [data-testid="stFormSubmitButton"] button span,
+.stApp [data-testid="stBaseButton-primary"] p,
+.stApp [data-testid="stBaseButton-primary"] span {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.stApp [data-testid="stFormSubmitButton"] button:hover,
+.stApp [data-testid="stBaseButton-primary"]:hover {
+    background-color: #999721 !important;
+    /* amber on hover */
+    border-color: #999721 !important;
 }
