@@ -4,6 +4,7 @@ import os
 import joblib
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="Mushroom Classification",
@@ -258,12 +259,19 @@ feature_groups = {
 
 #! Step 6: App header and overview
 
-st.title("🍄 Mushroom Classification")
-st.write(
-    "Explore mushroom characteristics and use four trained machine learning "
-    "models to predict whether a mushroom is edible or poisonous."
+st.markdown(
+    """
+    <div class="hero">
+        <h1>🍄 Mushroom Classification</h1>
+        <p>Explore mushroom characteristics and use four trained machine
+        learning models to predict whether a mushroom is edible or poisonous.</p>
+        <span class="badge">4 ML Models</span>
+        <span class="badge">21 Features</span>
+        <span class="badge">Educational Project</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
-st.caption("An educational machine learning project")
 st.divider()
 
 st.subheader("📊 Project Overview")
@@ -297,10 +305,16 @@ st.write(
     "individual mushroom features."
 )
 
-target_labels = df["class"].map({"e": "Edible", "p": "Poisonous"})
-target_distribution = target_labels.value_counts()
 st.subheader("Target Class Distribution")
-st.bar_chart(target_distribution)
+
+target_df = pd.DataFrame(
+    {
+        "Edible": [(df["class"] == "e").sum()],
+        "Poisonous": [(df["class"] == "p").sum()],
+    }
+)
+target_df.index = [" "]
+st.bar_chart(target_df, color=["#1A820AFF", "#DF0113E6"], stack=False)
 
 eda_feature = st.selectbox(
     "Choose a feature to explore",
@@ -317,8 +331,26 @@ feature_distribution = (
     .to_frame("Count")
 )
 st.subheader(f"{feature_labels.get(eda_feature, eda_feature)} Distribution")
-st.bar_chart(feature_distribution)
+st.bar_chart(feature_distribution, color="#315C28")
 
+# YData Profiling Report
+
+st.subheader("YData Profiling Report")
+
+report_path = os.path.join(BASE_DIR, "data", "mushroom_cleaned.html")
+
+if os.path.exists(report_path):
+    with open(report_path, "r", encoding="utf-8") as file:
+        report_html = file.read()
+
+    st.download_button(
+        "Download EDA Report (open in browser)",
+        data=report_html,
+        file_name="mushroom_eda_report.html",
+        mime="text/html",
+    )
+else:
+    st.warning("YData Profiling report not found.")
 
 #! Step 9: Mushroom identification form
 
@@ -452,8 +484,8 @@ st.dataframe(
     use_container_width=True,
     hide_index=True,
 )
-st.bar_chart(
-    model_comparison,
-    x="Model",
-    y="Test Accuracy (%)",
+st.bar_chart(model_comparison, x="Model", y="Test Accuracy (%)", color="#8B5E47FF")
+st.caption(
+    "All four models score between 99.94% and 100%, so the bars look the "
+    "same. The table above shows the exact values."
 )

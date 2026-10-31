@@ -1,10 +1,30 @@
+/* ---------- Page ---------- */
 .stApp {
     background-color: #F6F1E7;
     color: #173D32;
 }
 
-h1,
-h2,
+.block-container {
+    padding-top: 2rem;
+    max-width: 1200px;
+}
+
+/* ---------- Headings ---------- */
+h1 {
+    color: #173D32;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: #173D32;
+    font-weight: 700;
+    border-left: 6px solid #D98E04;
+    /* amber accent bar */
+    padding-left: 12px;
+    margin-top: 1.5rem;
+}
+
 h3,
 h4,
 p,
@@ -12,6 +32,7 @@ label {
     color: #173D32;
 }
 
+/* ---------- Dropdown labels and boxes ---------- */
 [data-testid="stWidgetLabel"] p {
     color: #173D32 !important;
     font-weight: 600;
@@ -19,62 +40,115 @@ label {
 
 [data-baseweb="select"]>div {
     background-color: #FFFFFF;
-    border-color: #D8CBB8;
+    border: 2px solid #CFC2AE;
     border-radius: 8px;
 }
 
+[data-baseweb="select"]>div:hover {
+    border-color: #173D32;
+}
+
+/* ---------- Metric cards ---------- */
 [data-testid="stMetric"] {
     background-color: #FFFFFF;
     border: 1px solid #E2D6C5;
+    border-left: 6px solid #173D32;
     padding: 18px;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(23, 61, 50, 0.12);
 }
 
-
-
-/* Predict Mushroom form-submit button */
-.stApp [data-testid="stFormSubmitButton"] button {
-    background-color: #173D32 !important;
-    color: #FFFFFF !important;
-    border: 1px solid #173D32 !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    opacity: 1 !important;
+[data-testid="stMetricValue"] {
+    color: #173D32;
+    font-weight: 800;
 }
 
-/* Ensure the button label is white */
-.stApp [data-testid="stFormSubmitButton"] button p,
-.stApp [data-testid="stFormSubmitButton"] button span {
-    color: #FFFFFF !important;
+/* ---------- Prediction form card ---------- */
+[data-testid="stForm"] {
+    background-color: #FFFFFF;
+    border: 1px solid #E2D6C5;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(23, 61, 50, 0.10);
 }
 
-/* Hover effect */
-.stApp [data-testid="stFormSubmitButton"] button:hover {
-    background-color: #245747 !important;
-    border-color: #245747 !important;
-    color: #FFFFFF !important;
+/* ---------- Message boxes (success / error / warning / info) ---------- */
+[data-testid="stAlert"] {
+    border-radius: 10px;
+    font-weight: 600;
 }
 
+/* ---------- Expanders and tables ---------- */
+[data-testid="stExpander"] {
+    background-color: #FFFFFF;
+    border: 1px solid #E2D6C5;
+    border-radius: 10px;
+}
 
-/* Try Another Mushroom button */
+[data-testid="stDataFrame"] {
+    border: 1px solid #E2D6C5;
+    border-radius: 10px;
+}
+
+/* ---------- Buttons (Predict + Try Another Mushroom) ---------- */
+.stApp [data-testid="stFormSubmitButton"] button,
 .stApp [data-testid="stBaseButton-primary"] {
     background-color: #173D32 !important;
     color: #FFFFFF !important;
-    border: 1px solid #173D32 !important;
+    border: 2px solid #173D32 !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    padding: 0.6rem 1.2rem !important;
     opacity: 1 !important;
-    visibility: visible !important;
 }
 
+.stApp [data-testid="stFormSubmitButton"] button p,
+.stApp [data-testid="stFormSubmitButton"] button span,
 .stApp [data-testid="stBaseButton-primary"] p,
-.stApp [data-testid="stBaseButton-primary"] span,
-.stApp [data-testid="stBaseButton-primary"] div {
+.stApp [data-testid="stBaseButton-primary"] span {
     color: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
-    opacity: 1 !important;
-    visibility: visible !important;
 }
 
+.stApp [data-testid="stFormSubmitButton"] button:hover,
 .stApp [data-testid="stBaseButton-primary"]:hover {
-    background-color: #245747 !important;
-    border-color: #245747 !important;
+    background-color: #999721 !important;
+    /* amber on hover */
+    border-color: #999721 !important;
+}
+
+/* ---------- Top banner ---------- */
+.hero {
+    background: linear-gradient(135deg, #164f18 0%, #15801a 100%);
+    padding: 2rem 2.2rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(23, 61, 50, 0.30);
+    margin-bottom: 1rem;
+}
+
+.hero h1,
+.hero p {
+    color: #FFFFFF !important;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.hero .badge {
+    display: inline-block;
+    background-color: #999721;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 6px 15px;
+    border-radius: 999px;
+    margin-right: 8px;
+    margin-top: 6px;
+}
+
+/* ---------- Bigger prediction messages ---------- */
+[data-testid="stAlert"] p {
+    font-size: 1.15rem;
 }
