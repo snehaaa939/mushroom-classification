@@ -1,8 +1,5 @@
+streamlit
 pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
+scikit-learn==1.8.0
 joblib
-ydata-profiling
-jupyter
+category_encoders
