@@ -76,6 +76,7 @@ The project includes an interactive Streamlit dashboard that provides:
 
 ![Dashboard overview](data/screenshots/overview.png.png)
 ![Prediction results](data/screenshots/prediction.png.png)
+![Model accuracy comparison](data/screenshots/model_accuracy.png)
 
 ## Technologies Used
 
