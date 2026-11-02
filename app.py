@@ -3,6 +3,7 @@
 import os
 import joblib
 import pandas as pd
+import matplotlib.pyplot as plt
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -322,16 +323,29 @@ eda_feature = st.selectbox(
     format_func=lambda col: feature_labels.get(col, col.replace("-", " ").title()),
     key="eda_feature",
 )
-feature_distribution = (
-    df[eda_feature]
-    .fillna("Missing")
-    .astype(str)
-    .value_counts()
-    .rename_axis("Category")
-    .to_frame("Count")
-)
+
+options_map = feature_options.get(eda_feature, {})
+
+feature_distribution = df[eda_feature].fillna("Missing").astype(str).value_counts()
+
+feature_distribution.index = [
+    options_map.get(value, value) for value in feature_distribution.index
+]
+
 st.subheader(f"{feature_labels.get(eda_feature, eda_feature)} Distribution")
-st.bar_chart(feature_distribution, color="#315C28")
+
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.bar(feature_distribution.index, feature_distribution.values, color="#315C28")
+ax.tick_params(axis="x", labelrotation=0)
+ax.set_xlabel("Category")
+ax.set_ylabel("Count")
+fig.patch.set_facecolor("#F6F1E7")  # page color around the chart
+ax.set_facecolor("#F6F1E7")  # chart area color
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.tight_layout()
+st.pyplot(fig)
+plt.close(fig)
 
 # YData Profiling Report
 
