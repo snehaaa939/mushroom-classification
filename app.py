@@ -498,7 +498,21 @@ st.dataframe(
     use_container_width=True,
     hide_index=True,
 )
-st.bar_chart(model_comparison, x="Model", y="Test Accuracy (%)", color="#8B5E47FF")
+fig2, ax2 = plt.subplots(figsize=(10, 5))
+ax2.bar(
+    model_comparison["Model"], model_comparison["Test Accuracy (%)"], color="#8B5E47"
+)
+ax2.tick_params(axis="x", labelrotation=0)
+ax2.set_xlabel("Model")
+ax2.set_ylabel("Test Accuracy (%)")
+ax2.set_ylim(0, 105)  # leaves a little space above the 100% bars
+fig2.patch.set_facecolor("#F6F1E7")  # page color around the chart
+ax2.set_facecolor("#F6F1E7")  # chart area color
+ax2.spines["top"].set_visible(False)
+ax2.spines["right"].set_visible(False)
+plt.tight_layout()
+st.pyplot(fig2)
+plt.close(fig2)
 st.caption(
     "All four models score between 99.94% and 100%, so the bars look the "
     "same. The table above shows the exact values."
