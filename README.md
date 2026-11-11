@@ -50,11 +50,11 @@ The following classification algorithms were trained and evaluated:
 
 ## Results
 
-The models achieved test accuracies of approximately **99.94% to 100%** on the selected test split.
+The tuned models achieved test accuracies of **100%** on the selected test split.
 
 | Model | Test Accuracy |
 |---|---:|
-| Logistic Regression | 99.94% |
+| Logistic Regression | 100% |
 | Support Vector Classifier | 100% |
 | K-Nearest Neighbors | 100% |
 | Random Forest | 100% |
@@ -74,8 +74,8 @@ The project includes an interactive Streamlit dashboard that provides:
 
 ### Screenshots
 
-![Dashboard overview](data/screenshots/overview.png.png)
-![Prediction results](data/screenshots/prediction.png.png)
+![Dashboard overview](data/screenshots/overview.png)
+![Prediction results](data/screenshots/prediction.png)
 ![Model accuracy comparison](data/screenshots/model_accuracy.png)
 
 ## Technologies Used
@@ -98,13 +98,13 @@ Mushroom_classification/
 │   └── config.toml
 ├── data/
 │   ├── mushroom_dataset_cleaned.csv
-│   └── mushroom_cleaned.html
+│   ├── mushroom_cleaned.html
+│   └── screenshots/
 ├── models/
 │   ├── logistic_regression_pipeline.joblib
 │   ├── svc_pipeline.joblib
 │   ├── knn_pipeline.joblib
 │   └── random_forest_pipeline.joblib
-├── screenshots/
 ├── app.py
 ├── check_models.py
 ├── style.css
