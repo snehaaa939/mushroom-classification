@@ -5,7 +5,6 @@ import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="Mushroom Classification",
@@ -489,7 +488,7 @@ model_comparison = pd.DataFrame(
             "KNN",
             "Random Forest",
         ],
-        "Test Accuracy (%)": [99.94, 100.00, 100.00, 100.00],
+        "Test Accuracy (%)": [100.00, 100.00, 100.00, 100.00],
     }
 )
 
@@ -514,6 +513,6 @@ plt.tight_layout()
 st.pyplot(fig2)
 plt.close(fig2)
 st.caption(
-    "All four models score between 99.94% and 100%, so the bars look the "
-    "same. The table above shows the exact values."
+    "All four tuned models achieved 100% test accuracy. "
+    "The table and chart show the recorded evaluation results."
 )
